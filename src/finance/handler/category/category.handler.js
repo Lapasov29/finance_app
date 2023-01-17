@@ -1,14 +1,14 @@
 import {
-  createCashboxService,
-  deleteCashboxByQueryService,
-  getCashboxByQueryService,
-  updateCashboxByQueryService,
-} from "../../../common/service/cashbox/cashbox.service.js";
+  createCategoryService,
+  deleteCategoryByQueryService,
+  getCategoryByQueryService,
+  updateCategoryByQueryService,
+} from "../../../common/service/category/category.service.js";
 
-export async function cashboxCreateHandler(request, response) {
+export async function categoryCreateHandler(request, response) {
   try {
     const data = request.body;
-    const res = await createCashboxService(data);
+    const res = await createCategoryService(data);
     return response.json({
       status: 200,
       message: "Ok",
@@ -22,9 +22,9 @@ export async function cashboxCreateHandler(request, response) {
   }
 }
 
-export async function cashboxGetHandler(request, response) {
+export async function categoryGetHandler(request, response) {
   try {
-    const get = await getCashboxByQueryService();
+    const get = await getCategoryByQueryService();
     return response.json({
       status: 200,
       message: "ok",
@@ -38,10 +38,10 @@ export async function cashboxGetHandler(request, response) {
   }
 }
 
-export async function cashboxDeleteHandler(request, response) {
+export async function categoryDeleteHandler(request, response) {
   try {
     const data = request.body;
-    const deleted = await deleteCashboxByQueryService(data);
+    const deleted = await deleteCategoryByQueryService(data);
     return response.json({
       status: 200,
       message: "ok",
@@ -55,10 +55,10 @@ export async function cashboxDeleteHandler(request, response) {
   }
 }
 
-export async function cashboxUpdateHandler(request, response) {
+export async function categoryUpdateHandler(request, response) {
   try {
     const data = request.body;
-    const update = await updateCashboxByQueryService(data);
+    const update = await updateCategoryByQueryService(data);
     return response.json({
       status: 200,
       message: "OK",

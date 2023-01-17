@@ -1,23 +1,25 @@
-import express from 'express'
-import {ENV} from "./common/config.js";
-import ConnectDb from "./common/db/connect.db.js"
+import express from "express";
+import { ENV } from "./common/config.js";
+import ConnectDb from "./common/db/connect.db.js";
 
 // routes
-import UserRoutes from "./finance/router/user/user.routes.js"
-import CashboxRoutes from "./finance/router/cashbox/cashbox.routes.js"
-import authToken from './finance/middleware/authToken.js';
+import UserRoutes from "./finance/router/user/user.routes.js";
+import TransactionRoutes from "./finance/router/transaction/transaction.routes.js";
+import CategoryRoutes from "./finance/router/category/category.routes.js";
+import CashboxRoutes from "./finance/router/cashbox/cashbox.routes.js";
 
-const app = new express()
+const app = new express();
 
-app.use(express.json())
+app.use(express.json());
 
-app.use('/user', UserRoutes)
-app.use(authToken)
-app.use('/cashbox', CashboxRoutes)
+app.use("/sign", UserRoutes);
+app.use("/transaction", TransactionRoutes);
+app.use("/category", CategoryRoutes)
+app.use("/cashbox", CashboxRoutes)
 
-async function start(){
-    console.log('server is running')
-    ConnectDb()
+async function start() {
+  console.log("server is running");
+  ConnectDb();
 }
 
-app.listen(ENV.PORT, start())
+app.listen(ENV.PORT, start());
