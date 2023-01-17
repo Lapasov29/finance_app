@@ -10,7 +10,7 @@ export async function createCashboxService(data) {
     }
 }
 
-export async function getCashboxService(id) {
+    export async function getCashboxService(id) {
     try {
         const cashbox = await cashboxModel.findById(id)
         return cashbox

@@ -1,19 +1,19 @@
-import categoryModel from '../../../db/model/category/category.model'
+import createModel from "../../../common/db/model/category/category.model.js"
 
 export async function createCategoryService(data) {
     try {
-        const category = await categoryModel.create(data)
-        return category
+        const cashbox = await createModel.create(data)
+        return cashbox
     } catch (error) {
         console.log(error.message);
         throw error
     }
 }
 
-export async function getCategoryService(id) {
+    export async function getCategoryService(id) {
     try {
-        const category = await categoryModel.findById(id)
-        return category
+        const cashbox = await createModel.findById(id)
+        return cashbox
     } catch (error) {
         console.log(error.message);
         throw error
@@ -23,7 +23,7 @@ export async function getCategoryService(id) {
 export async function updateCategoryService(id, data) {
     try {
         console.log(id, data);
-        await categoryModel.updateOne({_id: id}, {$set: data})
+        await createModel.updateOne({_id: id}, {$set: data})
     } catch (error) {
         console.log(error.message);
         throw error
@@ -32,7 +32,7 @@ export async function updateCategoryService(id, data) {
 
 export async function deleteCategoryService(id) {
     try {
-        await categoryModel.deleteOne({_id: id})
+        await createModel.deleteOne({_id: id})
     } catch (error) {
         console.log(error.message);
         throw error
