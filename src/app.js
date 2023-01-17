@@ -20,4 +20,6 @@ async function start(){
     ConnectDb()
 }
 
+console.log("Asl best of the best");
+
 app.listen(ENV.PORT, start())
