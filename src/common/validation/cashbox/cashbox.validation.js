@@ -6,7 +6,7 @@ export default Joi.object({
         .max(30)
         .required(),
 
-    // categoryId: Joi.string().required(),
+    categoryId: Joi.string().required(),
     balance: Joi.number().required(),
     isInTotal: Joi.boolean().required(),
     userId: Joi.string().required()

@@ -1,9 +1,9 @@
-import {createUserService} from "../../../common/service/user/user.service.js"
+import {createCategoryService} from "../../../common/service/category/cashbox/category.service.js"
 
-export async function userCreateHandler(request, response){
+export async function categoryCreateHandler(request, response){
     try {
         const data = request.body
-        const res = await createUserService(data)
+        const res = await createCategoryService(data)
         return response.json({
             status: 200,
             message: "Ok",

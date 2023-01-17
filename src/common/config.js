@@ -7,5 +7,5 @@ DotEnv.config({
 
 export const ENV = {
     DB_URL: process.env.DB_URL || 'mongodb://localhost:27017/FINANCE',
-    PORT: process.env.PORT || 9000
+    PORT: process.env.PORT || 2090
 }
