@@ -16,7 +16,7 @@ app.use(authToken)
 app.use('/cashbox', CashboxRoutes)
 
 async function start(){
-    console.log('server is running')
+    console.log('server is Runnig')
     ConnectDb()
 }
 
