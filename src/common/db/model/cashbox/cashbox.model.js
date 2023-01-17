@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
 
 export const CashboxSchema = new mongoose.Schema({
-    name: String,
-    categoryId: mongoose.SchemaTypes.ObjectId,
-    balance: Number,
-    isInTotal: Boolean,
-    userId: mongoose.SchemaTypes.ObjectId
-})
+  name: String,
+  categoryId: Number,
+  balance: Number,
+  isInTotal: Boolean,
+  userId: Number,
+});
 
-export default mongoose.model("CASHBOX", CashboxSchema)
+export default mongoose.model("CASHBOX", CashboxSchema);

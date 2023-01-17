@@ -1,40 +1,41 @@
-import cashboxModel from '../../db/model/cashbox/cashbox.model.js'
+import cashboxModel from "../../db/model/cashbox/cashbox.model.js";
 
 export async function createCashboxService(data) {
-    try {
-        const cashbox = await cashboxModel.create(data)
-        return cashbox
-    } catch (error) {
-        console.log(error.message);
-        throw error
-    }
+  try {
+    const cashbox = await cashboxModel.create(data);
+    return cashbox;
+  } catch (error) {
+    console.log(error.message);
+    throw error;
+  }
 }
 
-export async function getCashboxService(id) {
-    try {
-        const cashbox = await cashboxModel.findById(id)
-        return cashbox
-    } catch (error) {
-        console.log(error.message);
-        throw error
-    }
+export async function getCashboxByQueryService(query = {}) {
+  try {
+    const get = await cashboxModel.find(query, { __v: 0 });
+    return get;
+  } catch (error) {
+    console.log(error.message);
+    throw error;
+  }
 }
 
-export async function updateCashboxService(id, data) {
-    try {
-        console.log(id, data);
-        await cashboxModel.updateOne({_id: id}, {$set: data})
-    } catch (error) {
-        console.log(error.message);
-        throw error
-    }
+export async function deleteCashboxByQueryService(query) {
+  try {
+    const deleted = await cashboxModel.deleteOne(query);
+    return deleted;
+  } catch (error) {
+    console.log(error.message);
+    throw error;
+  }
 }
 
-export async function deleteCashboxService(id) {
-    try {
-        await cashboxModel.deleteOne({_id: id})
-    } catch (error) {
-        console.log(error.message);
-        throw error
-    }
+export async function updateCashboxByQueryService(query) {
+  try {
+    const updated = await cashboxModel.updateOne(query);
+    return updated;
+  } catch (error) {
+    console.log(error.message);
+    throw error;
+  }
 }

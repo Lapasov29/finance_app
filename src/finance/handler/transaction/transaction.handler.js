@@ -1,14 +1,14 @@
 import {
-  createCashboxService,
-  deleteCashboxByQueryService,
-  getCashboxByQueryService,
-  updateCashboxByQueryService,
-} from "../../../common/service/cashbox/cashbox.service.js";
+  createTransactionService,
+  deleteTransactionByQueryService,
+  getTransactionByQueryService,
+  updateTransactionByQueryService,
+} from "../../../common/service/transaction/transaction.service.js";
 
-export async function cashboxCreateHandler(request, response) {
+export async function transactionCreateHandler(request, response) {
   try {
     const data = request.body;
-    const res = await createCashboxService(data);
+    const res = await createTransactionService(data);
     return response.json({
       status: 200,
       message: "Ok",
@@ -22,9 +22,9 @@ export async function cashboxCreateHandler(request, response) {
   }
 }
 
-export async function cashboxGetHandler(request, response) {
+export async function transactionGetHandler(request, response) {
   try {
-    const get = await getCashboxByQueryService();
+    const get = await getTransactionByQueryService();
     return response.json({
       status: 200,
       message: "ok",
@@ -38,10 +38,10 @@ export async function cashboxGetHandler(request, response) {
   }
 }
 
-export async function cashboxDeleteHandler(request, response) {
+export async function transactionDeleteHandler(request, response) {
   try {
     const data = request.body;
-    const deleted = await deleteCashboxByQueryService(data);
+    const deleted = await deleteTransactionByQueryService(data);
     return response.json({
       status: 200,
       message: "ok",
@@ -55,10 +55,10 @@ export async function cashboxDeleteHandler(request, response) {
   }
 }
 
-export async function cashboxUpdateHandler(request, response) {
+export async function transactionUpdateHandler(request, response) {
   try {
     const data = request.body;
-    const update = await updateCashboxByQueryService(data);
+    const update = await updateTransactionByQueryService(data);
     return response.json({
       status: 200,
       message: "OK",
