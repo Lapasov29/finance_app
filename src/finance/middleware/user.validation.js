@@ -3,7 +3,6 @@ import userValidationSchema from "../../common/validation/user/user.validation.j
 export async function userValidation(request, response, next) {
   try {
     const value = await userValidationSchema.validateAsync(request.body);
-    console.log(value);
     next();
   } catch (err) {
     response.json({

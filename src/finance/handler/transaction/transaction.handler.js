@@ -55,3 +55,19 @@ export async function transactionUpdateHandler(request, response) {
   }
 }
      
+export async function transactionDeleteHandler(request, response) {
+  try {
+    const data = request.params;
+    const deleted = await deleteTransactionByQueryService(data._id);
+    return response.json({
+      status: 200,
+      message: "ok",
+      data: deleted,
+    });
+  } catch (error) {
+    response.json({
+      status: 400,
+      message: error.message,
+    });
+  }
+}

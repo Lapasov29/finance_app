@@ -5,7 +5,7 @@ import {
   categoryGetHandler,
   categoryUpdateHandler,
 } from "../../handler/category/category.handler.js";
-import { categoryValidation } from "../../middleware/category.validaton.js";
+import {categoryValidation} from "../../middleware/category.validation.js";
 
 const router = Router();
 

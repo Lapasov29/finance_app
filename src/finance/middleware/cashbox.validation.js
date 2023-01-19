@@ -12,3 +12,4 @@ export async function cashboxValidation(request, response, next){
             message: err.message
         })
     }
+}

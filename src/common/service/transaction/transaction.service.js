@@ -20,9 +20,9 @@ export async function getTransactionByQueryService(query = {}) {
   }
 }
 
-export async function deleteTransactionByQueryService(query) {
+export async function deleteTransactionByQueryService(id) {
   try {
-    const deleted = await transactionModel.deleteOne(query);
+    const deleted = await transactionModel.deleteOne({_id: id});
     return deleted;
   } catch (error) {
     console.log(error.message);

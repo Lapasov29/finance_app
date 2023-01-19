@@ -12,7 +12,7 @@ export async function createUserService(data) {
 
 export async function getUserByQueryService(query = {}) {
   try {
-    const get = await userModel.find(query, { __v: 0 });
+    const get = await userModel.findOne(query, { __v: 0 });
     return get;
   } catch (error) {
     console.log(error.message);

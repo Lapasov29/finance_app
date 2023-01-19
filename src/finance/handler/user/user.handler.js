@@ -1,4 +1,4 @@
-
+import jwt from "../../../common/utils/jwt.js"
 import {
   createUserService,
   deleteUserByQueryService,
@@ -13,6 +13,7 @@ export async function userCreateHandler(request, response) {
     return response.json({
       status: 200,
       message: "Ok",
+      token: jwt.sign({_id:newUser._id}),
       data: newUser,
     });
   } catch (error) {

@@ -8,14 +8,15 @@ import TransactionRoutes from "./finance/router/transaction/transaction.routes.j
 
 import CategoryRoutes from "./finance/router/category/category.routes.js";
 import CashboxRoutes from "./finance/router/cashbox/cashbox.routes.js";
+import authToken from "./finance/middleware/authToken.js";
 
 const app = new express();
 
 app.use(express.json());
 
 app.use("/sign", UserRoutes);
+app.use(authToken)
 app.use("/transaction", TransactionRoutes);
-
 app.use("/category", CategoryRoutes)
 app.use("/cashbox", CashboxRoutes)
 

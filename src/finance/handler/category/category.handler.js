@@ -1,5 +1,4 @@
 
-import {createCategoryService} from "../../../common/service/category/cashbox/category.service.js"
 
 import {
   createCategoryService,

@@ -9,8 +9,8 @@ const route = Router();
 
 route.post("/", transactionValidation, transactionCreateHandler);
 route.get("/get", transactionGetHandler);
-route.get("/upd", transactionUpdateHandler);
-route.get("/del", transactionDeleteHandler);
+route.put("/upd", transactionUpdateHandler);
+route.delete("/del", transactionDeleteHandler);
 
 
 export default route;

@@ -1,4 +1,3 @@
-import {createCashboxService} from "../../../common/service/cashbox/cashbox.service.js"
 import {
   createCashboxService,
   deleteCashboxByQueryService,
@@ -9,6 +8,9 @@ import {
 export async function cashboxCreateHandler(request, response) {
   try {
     const data = request.body;
+    const user = request.user
+    data.userId = user._id
+    console.log(99, data);
     const res = await createCashboxService(data);
     return response.json({
       status: 200,
@@ -25,11 +27,12 @@ export async function cashboxCreateHandler(request, response) {
 
 export async function cashboxGetHandler(request, response) {
   try {
-    const get = await getCashboxByQueryService();
+    const userId = request.user._id
+    const userCashbox = await getCashboxByQueryService({userId});
     return response.json({
       status: 200,
       message: "ok",
-      data: get,
+      data: userCashbox,
     });
   } catch (error) {
     response.json({

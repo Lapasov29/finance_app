@@ -5,7 +5,7 @@ export const CashboxSchema = new mongoose.Schema({
   categoryId: Number,
   balance: Number,
   isInTotal: Boolean,
-  userId: Number,
+  userId: mongoose.SchemaTypes.ObjectId,
 });
 
 export default mongoose.model("CASHBOX", CashboxSchema);
