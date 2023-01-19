@@ -1,41 +1,41 @@
 import transactionModel from "../../db/model/transaction/transaction.model.js";
 
-export async function getTransactionByQueryService(query = {}){
-    try {
-        const transaction = await transactionModel.findOne(query, {__v: 0})
-        return transaction
-    } catch (error) {
-        console.log(error.message);
-        throw error
-    }
-}
-
 export async function createTransactionService(data) {
-    try {
-        const transaction = await transactionModel.create(data)
-        return transaction
-    } catch (error) {
-        console.log(error.message);
-        throw error
-    }
+  try {
+    const create = await transactionModel.create(data);
+    return create;
+  } catch (error) {
+    console.log(error.message);
+    throw error;
+  }
 }
 
-export async function updateTransactionService(query) {
-    try {
-        const transaction = await transactionModel.updateOne(query)
-        return transaction
-    } catch (error) {
-        console.log(error.message);
-        throw error
-    }
+export async function getTransactionByQueryService(query = {}) {
+  try {
+    const get = await transactionModel.find(query, { __v: 0 });
+    return get;
+  } catch (error) {
+    console.log(error.message);
+    throw error;
+  }
 }
 
-export async function deleteTransactionService(query) {
-    try {
-        const transaction = await transactionModel.deleteOne(query)
-        return transaction
-    } catch (error) {
-        console.log(error.message);
-        throw error
-    }
+export async function deleteTransactionByQueryService(query) {
+  try {
+    const deleted = await transactionModel.deleteOne(query);
+    return deleted;
+  } catch (error) {
+    console.log(error.message);
+    throw error;
+  }
+}
+
+export async function updateTransactionByQueryService(query) {
+  try {
+    const updated = await transactionModel.updateOne(query);
+    return updated;
+  } catch (error) {
+    console.log(error.message);
+    throw error;
+  }
 }

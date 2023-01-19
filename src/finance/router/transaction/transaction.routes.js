@@ -12,4 +12,5 @@ route.get("/get", transactionGetHandler);
 route.get("/upd", transactionUpdateHandler);
 route.get("/del", transactionDeleteHandler);
 
+
 export default route;

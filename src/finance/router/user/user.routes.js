@@ -1,9 +1,20 @@
 import { Router } from "express";
-import {userCreateHandler} from "../../handler/user/user.handler.js";
-import {userValidation} from "../../middleware/user.validation.js";
 
-const route = Router()
+import {
+  userCreateHandler,
+  userDeleteHandler,
+  userGetHandler,
+  UserUpdateHandler,
+} from "../../handler/user/user.handler.js";
+import { userValidation } from "../../middleware/user.validation.js";
 
-route.post('/', userValidation, userCreateHandler)
+const router = Router();
 
-export default route
+router
+  .route("/")
+  .get(userGetHandler)
+  .post(userValidation, userCreateHandler)
+  .delete(userDeleteHandler)
+  .put(UserUpdateHandler);
+
+export default router;

@@ -1,9 +1,18 @@
-import { Router } from "express";
-import {cashboxCreateHandler} from "../../handler/cashbox/cashbox.handler.js";
-import {cashboxValidation} from "../../middleware/cashbox.validation.js";
+import {
+  cashboxCreateHandler,
+  cashboxDeleteHandler,
+  cashboxGetHandler,
+  cashboxUpdateHandler,
+} from "../../handler/cashbox/cashbox.handler.js";
+import { cashboxValidation } from "../../middleware/cashbox.validation.js";
 
-const route = Router()
+const router = Router();
 
-route.post('/', cashboxValidation, cashboxCreateHandler)
-
-export default route
+router
+  .route("/")
+  .get(cashboxGetHandler)
+  .post(cashboxValidation, cashboxCreateHandler)
+  .delete(cashboxDeleteHandler)
+  .put(cashboxUpdateHandler);
+  
+export default router;
