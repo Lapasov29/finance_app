@@ -38,31 +38,14 @@ export async function transactionGetHandler(request, response) {
   }
 }
 
-export async function transactionDeleteHandler(request, response) {
-  try {
-    const data = request.body;
-    const deleted = await deleteTransactionByQueryService(data);
-    return response.json({
-      status: 200,
-      message: "ok",
-      data: deleted,
-    });
-  } catch (error) {
-    response.json({
-      status: 400,
-      message: error.message,
-    });
-  }
-}
-
 export async function transactionUpdateHandler(request, response) {
   try {
     const data = request.body;
-    const update = await updateTransactionByQueryService(data);
+    const res = await updateTransactionService(data);
     return response.json({
       status: 200,
-      message: "OK",
-      data: update,
+      message: "Ok",
+      data: res,
     });
   } catch (error) {
     response.json({
@@ -71,3 +54,4 @@ export async function transactionUpdateHandler(request, response) {
     });
   }
 }
+     

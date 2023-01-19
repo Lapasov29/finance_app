@@ -1,19 +1,16 @@
 import { Router } from "express";
-import {
-  transactionCreateHandler,
-  transactionDeleteHandler,
-  transactionGetHandler,
-  transactionUpdateHandler,
-} from "../../handler/transaction/transaction.handler.js";
+import { transactionCreateHandler } from "../../handler/transaction/transaction.handler.js";
+import { transactionGetHandler } from "../../handler/transaction/transaction.handler.js";
+import { transactionUpdateHandler } from "../../handler/transaction/transaction.handler.js";
+import { transactionDeleteHandler } from "../../handler/transaction/transaction.handler.js";
 import { transactionValidation } from "../../middleware/transaction.validation.js";
 
 const route = Router();
 
-route
-  .route("/")
-  .get(transactionGetHandler)
-  .post(transactionValidation, transactionCreateHandler)
-  .delete(transactionDeleteHandler)
-  .put(transactionUpdateHandler);
+route.post("/", transactionValidation, transactionCreateHandler);
+route.get("/get", transactionGetHandler);
+route.get("/upd", transactionUpdateHandler);
+route.get("/del", transactionDeleteHandler);
+
 
 export default route;

@@ -1,3 +1,4 @@
+import {createCashboxService} from "../../../common/service/cashbox/cashbox.service.js"
 import {
   createCashboxService,
   deleteCashboxByQueryService,
