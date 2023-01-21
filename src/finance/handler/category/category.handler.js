@@ -1,5 +1,3 @@
-
-
 import {
   createCategoryService,
   deleteCategoryByQueryService,
@@ -10,6 +8,7 @@ import {
 export async function categoryCreateHandler(request, response) {
   try {
     const data = request.body;
+    data.userId = request.user._id
     const res = await createCategoryService(data);
     return response.json({
       status: 200,
@@ -26,7 +25,8 @@ export async function categoryCreateHandler(request, response) {
 
 export async function categoryGetHandler(request, response) {
   try {
-    const get = await getCategoryByQueryService();
+    const userId = request.user._id
+    const get = await getCategoryByQueryService(userId);
     return response.json({
       status: 200,
       message: "ok",
@@ -42,12 +42,12 @@ export async function categoryGetHandler(request, response) {
 
 export async function categoryDeleteHandler(request, response) {
   try {
-    const data = request.body;
-    const deleted = await deleteCategoryByQueryService(data);
+    const data = request.params;
+    await deleteCategoryByQueryService(data);
     return response.json({
       status: 200,
       message: "ok",
-      data: deleted,
+      data: data._id,
     });
   } catch (error) {
     response.json({
@@ -60,11 +60,11 @@ export async function categoryDeleteHandler(request, response) {
 export async function categoryUpdateHandler(request, response) {
   try {
     const data = request.body;
-    const update = await updateCategoryByQueryService(data);
+    await updateCategoryByQueryService(data);
     return response.json({
       status: 200,
       message: "OK",
-      data: update,
+      data: data._id,
     });
   } catch (error) {
     response.json({

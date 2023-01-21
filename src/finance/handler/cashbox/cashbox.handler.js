@@ -44,12 +44,12 @@ export async function cashboxGetHandler(request, response) {
 
 export async function cashboxDeleteHandler(request, response) {
   try {
-    const data = request.body;
-    const deleted = await deleteCashboxByQueryService(data);
+    const data = request.params;
+    await deleteCashboxByQueryService(data);
     return response.json({
       status: 200,
       message: "ok",
-      data: deleted,
+      data: data._id,
     });
   } catch (error) {
     response.json({
@@ -62,11 +62,11 @@ export async function cashboxDeleteHandler(request, response) {
 export async function cashboxUpdateHandler(request, response) {
   try {
     const data = request.body;
-    const update = await updateCashboxByQueryService(data);
+    await updateCashboxByQueryService(data);
     return response.json({
       status: 200,
       message: "OK",
-      data: update,
+      data: data._id,
     });
   } catch (error) {
     response.json({

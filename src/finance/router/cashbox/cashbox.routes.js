@@ -13,7 +13,8 @@ router
   .route("/")
   .get(cashboxGetHandler)
   .post(cashboxValidation, cashboxCreateHandler)
-  .delete(cashboxDeleteHandler)
   .put(cashboxUpdateHandler);
+
+router.delete('/:_id', cashboxDeleteHandler)
   
 export default router;

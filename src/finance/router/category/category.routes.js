@@ -13,7 +13,8 @@ router
   .route("/")
   .get(categoryGetHandler)
   .post(categoryValidation, categoryCreateHandler)
-  .delete(categoryDeleteHandler)
   .put(categoryUpdateHandler);
+
+router.delete('/:_id', categoryDeleteHandler)
 
 export default router;

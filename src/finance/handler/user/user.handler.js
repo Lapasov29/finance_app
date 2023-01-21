@@ -24,13 +24,18 @@ export async function userCreateHandler(request, response) {
   }
 }
 
-export async function userGetHandler(request, response) {
+export async function userLoginHandler(request, response) {
   try {
-    const get = await getUserByQueryService();
+    const data = request.body
+    const query = {
+      email: data.email,
+      password: data.password
+    }
+    const user = await getUserByQueryService(query);
     return response.json({
       status: 200,
       message: "ok",
-      data: get,
+      token: jwt.sign({_id:user._id}),
     });
   } catch (error) {
     response.json({
@@ -57,7 +62,7 @@ export async function userDeleteHandler(request, response) {
   }
 }
 
-export async function UserUpdateHandler(request, response) {
+export async function userUpdateHandler(request, response) {
   try {
     const data = request.body;
     const update = await updateUserByQueryService(data);
